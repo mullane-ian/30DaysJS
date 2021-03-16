@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+canvas {
+    position:fixed;
+    background: white;
+    top:0;
+    left:0;
+    z-index:-1;
+}
+
+a {
+    z-index: -10;
+}

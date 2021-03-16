@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day 5</title>
+</head>
+<body>
+    <style>
+        html {
+          box-sizing: border-box;
+          background: #ffc600;
+          font-family: 'helvetica neue';
+          font-size: 20px;
+          font-weight: 200;
+        }
+        
+        body {
+          margin: 0;
+        }
+
+        h1 {
+            position: absolute;
+            font-size: 70px;
+        }
+        
+        *, *:before, *:after {
+          box-sizing: inherit;
+        }
+    
+        .panels {
+          min-height: 100vh;
+          overflow: hidden;
+          display: flex;
+        }
+    
+        .panel {
+          background: #6B0F9C;
+          box-shadow: inset 0 0 0 5px rgba(255,255,255,0.1);
+          color: white;
+          text-align: center;
+          align-items: center;
+          /* Safari transitionend event.propertyName === flex */
+          /* Chrome + FF transitionend event.propertyName === flex-grow */
+          transition:
+            font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+            flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+            background 0.2s;
+          font-size: 20px;
+          background-size: cover;
+          background-position: center;
+          flex: 1;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          flex-direction: column;
+        }
+    
+        .panel1 { background-image:url(https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/160242340_3781487141948340_7397824823368442147_n.jpg?_nc_cat=106&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=FP7qUfMklk0AX9omUJF&_nc_ht=scontent-lax3-1.xx&oh=9c896bad7061188d63e827d07496e13e&oe=6075576C); }
+        .panel2 { background-image:url(https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/160796889_3781487268614994_2329252808815629857_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=Um52bgRvv_oAX8B8Osa&_nc_ht=scontent-lax3-1.xx&oh=3a26645483cded7c5a52b0c928da2477&oe=60763B53); }
+        .panel3 { background-image:url(https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/160758710_10100383829285131_2506315340453467355_n.jpg?_nc_cat=107&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=O1Fo0UC5wRcAX_7K-_H&_nc_ht=scontent-lax3-1.xx&oh=1efc21bedb4a810241fdec049b10f11c&oe=60763FAD); }
+        .panel4 { background-image:url(https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/160239608_10100383804305191_4933198891372171370_n.jpg?_nc_cat=100&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=UStLPTx_yOAAX84VeGU&_nc_ht=scontent-lax3-1.xx&oh=eec639416a9cb86ca7e8f5a5ca04f94d&oe=60767B9E); }
+        .panel5 { background-image:url(https://scontent-lax3-1.xx.fbcdn.net/v/t1.0-9/160909876_3781487315281656_8492909031930673724_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=HfG2nlQmjcsAX94DxIc&_nc_ht=scontent-lax3-1.xx&oh=adf959e482019bf3f8487e62cb5bd4f2&oe=60781580); }
+    
+        /* Flex Children */
+        .panel > * {
+          margin: 0;
+          width: 100%;
+          transition: transform 0.5s;
+
+          flex: 1 0 auto;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .panel > *:first-child{transform: translateY(-100%)}
+        .panel.open-active > *:first-child{transform: translateY(0)}
+
+        .panel > *:last-child{transform: translateY(100%)}
+        .panel.open-active > *:last-child{transform: translateY(0)}
+
+    
+        .panel p {
+          text-transform: uppercase;
+          font-family: 'Amatic SC', cursive;
+          text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+          font-size: 2em;
+        }
+        
+        .panel p:nth-child(2) {
+          font-size: 4em;
+        }
+    
+        .panel.open {
+          flex: 5;
+          font-size: 40px;
+        }
+
+      
+    
+      </style>
+
+        <div class="header" >
+            <a href="/index.html" style=" font-family: 'Amatic SC', cursive;text-decoration: none; color: white; font-size:50px"><h1>Day 5</h1></a>
+            
+        </div> 
+      <div class="panels">
+        <div class="panel panel1">
+          <p>Las</p>
+          <p>vegas</p>
+          <p>Vacation</p>
+        </div>
+        <div class="panel panel2">
+          <p>Lines</p>
+          <p>20</p>
+          <p>taken</p>
+        </div>
+        <div class="panel panel3">
+          <p>Shots</p>
+          <p>21</p>
+          <p>taken</p>
+        </div>
+        <div class="panel panel4">
+          <p>Hey</p>
+          <p>Let's</p>
+          <p>win</p>
+        </div>
+        <div class="panel panel5">
+          <p>big</p>
+          <p>Go</p>
+          <p>home</p>
+        </div>
+      </div>
+    
+      <script>
+          const panels = document.querySelectorAll('.panel')
+
+          function toggleOpen() {
+              this.classList.toggle('open')
+          }
+
+          function toggleActive(e) {
+            if(e.propertyName.includes('flex')){
+                this.classList.toggle('open-active')
+            }
+          }
+
+          panels.forEach(panel => panel.addEventListener('click', toggleOpen))
+          panels.forEach(panel => panel.addEventListener('transitionend', toggleActive))
+
+
+      </script>
+</body>
+</html>

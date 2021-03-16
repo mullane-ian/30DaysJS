@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="day4.css">
+    <title>Document</title>
+</head>
+<body>
+    <a href="index.html">
+        <div class="header" style = "margin-left: 10px;">
+            <a href="/index.html" style="text-decoration: none; color: white; font-size:50px"><h1>Day 4</h1></a>
+        </div>
+        <p style="margin-left: 10px; width: 300px; color: white; font-size:20px">Today in the 30 day Js Challenge, I worked with arrays. This practice was all done in the console so for this day I made some trails with threeJs! </p>
+
+
+   
+
+    
+    <script>
+        const inventors = [
+            {first:'Albert', last: 'Einstein', year: 1879, passed: 1955},
+            {first:'Isaac', last: 'Newton', year: 1643, passed: 1727},
+            {first:'Galileo', last: 'Galilei', year: 1564, passed: 1642},
+            {first:'Marie', last: 'Cuie', year: 1867, passed: 1934},
+            {first:'Johannes', last: 'Kepler', year: 1571, passed: 1630},
+            {first:'Nicolaus', last: 'Copernicus', year: 1473, passed: 1543},
+            {first:'Max', last: 'Planck', year: 1858, passed: 1947},
+        ]
+
+        const people = ['Beck, Glenn', 'Pendleton, Alyssa', 'Mullane, Ian', 'Mick, Beddoes',
+        'Beecher,Henry', 'Beethoven, Ludwig', 'Begin, Menachem', 'Bellox, Hilaire', 'Pendleton, Josh',
+        'Clouse,Sam', "Wahlburger, Mark", "Black, Jack", 'Elk, BLack', 'Bevan, Sandra', 'Lil, Wayne', 
+        'Sinatra, Frank', 'Wazowski, Mike'
+        ]
+
+        const fifteen = inventors.filter(function(inventor){
+            if(inventor.year >= 1500 && inventor.year < 1600){
+                return true
+            }
+        })
+        console.table(fifteen)
+
+        const fullName = inventors.map(inventor => `${inventor.first} ${inventor.last}`)
+        console.log(fullName)
+
+        const ordered = inventors.sort(function(a,b){
+            if(a.year > b.year){
+                return 1
+            }else{
+                return -1
+            }
+        })
+        console.table(ordered)
+
+
+        const totalYears = inventors.reduce((total,inventor) =>{
+            return total + (inventor.passed - inventor.year)
+        }, 0)
+
+        console.log(totalYears)
+
+        const oldest = inventors.sort(function(a,b){
+            const lastGuy = a.passed - a.year
+            const nextGuy = b.passed - b.year
+            return lastGuy > nextGuy ? -1 : 1
+        })
+        console.table(oldest)
+
+
+        const alpha = people.sort((lastOne,nextOne) =>{
+            const [aLast, aFirst] = lastOne.split(', ')
+            const [bLast, bFirst] = nextOne.split(', ')
+            return aLast > bLast ? 1 : -1
+        })
+        console.log(alpha)
+
+
+    </script>
+    <canvas class="webgl"></canvas>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r126/three.min.js" integrity="sha512-n8IpKWzDnBOcBhRlHirMZOUvEq2bLRMuJGjuVqbzUJwtTsgwOgK5aS0c1JA647XWYfqvXve8k3PtZdzpipFjgg==" crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
